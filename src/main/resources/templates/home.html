@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人员管理系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #2c2c2c;
+            color: #fff;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .topbar {
+            background-color: #2c2c2c;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .topbar span {
+            margin-right: 20px;
+        }
+        .welcome-message {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .welcome-message h1 {
+            color: #2c2c2c;
+            margin-bottom: 20px;
+        }
+        .welcome-message p {
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                alert('登录成功');
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="sidebar">
+    <h2>人员管理系统</h2>
+    <a href="#">首页</a>
+    <a href="#">客户管理</a>
+    <a href="#">员工管理</a>
+    <a href="#">审核流程</a>
+    <a href="#">系统管理</a>
+    <a href="#">联系我们</a>
+</div>
+<div class="main-content">
+    <div class="topbar">
+        <span>你好，欢迎您</span>
+    </div>
+    <div class="welcome-message">
+        <h1>欢迎来到人员管理系统</h1>
+        <p>这是一个专注于管理客户、员工以及审核流程的系统。</p>
+        <p>您可以通过侧边栏导航访问不同的功能模块。</p>
+    </div>
+</div>
+</body>
+</html>
