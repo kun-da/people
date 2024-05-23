@@ -26,7 +26,7 @@ public class PersonnelController {
     public String getPersonnel(@PathVariable int id, Model model) {
         Personnel personnel = personnelService.getPersonnelById(id);
         model.addAttribute("personnel", personnel);
-        return "personnel_detail";
+        return "personnel_form";
     }
 
     @GetMapping("/personnel/new")
