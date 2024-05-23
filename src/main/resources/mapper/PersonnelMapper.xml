@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.people.dao.PersonnelDao">
+    <select id="getAllPersonnel" resultType="org.example.people.pojo.Personnel">
+        SELECT * FROM Personnel;
+    </select>
+
+    <select id="getPersonnelById" parameterType="int" resultType="org.example.people.pojo.Personnel">
+        SELECT * FROM Personnel WHERE id = #{id};
+    </select>
+
+    <insert id="insertPersonnel" parameterType="org.example.people.pojo.Personnel">
+        INSERT INTO Personnel (name, age, gender, position, salary, hire_year)
+        VALUES (#{name}, #{age}, #{gender}, #{position}, #{salary}, #{hireYear});
+    </insert>
+
+    <update id="updatePersonnel" parameterType="org.example.people.pojo.Personnel">
+        UPDATE Personnel
+        SET name=#{name}, age=#{age}, gender=#{gender}, position=#{position}, salary=#{salary}, hire_year=#{hireYear}
+        WHERE id=#{id};
+    </update>
+
+    <delete id="deletePersonnel" parameterType="int">
+        DELETE FROM Personnel WHERE id = #{id};
+    </delete>
+</mapper>
