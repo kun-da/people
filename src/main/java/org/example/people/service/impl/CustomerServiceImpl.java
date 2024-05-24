@@ -5,6 +5,7 @@ import org.example.people.pojo.Customer;
 import org.example.people.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -19,8 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomerByCustomerName(String customerName) {
-        return customerDao.getCustomerByCustomerName(customerName);
+    public Customer getCustomerById(int id) {
+        return customerDao.getCustomerById(id);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(String customerName) {
-        customerDao.deleteCustomer(customerName);
+    public void deleteCustomer(int id) {
+        customerDao.deleteCustomer(id);
     }
 }

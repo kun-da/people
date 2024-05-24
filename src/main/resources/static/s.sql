@@ -35,6 +35,7 @@ VALUES
 
 
 CREATE TABLE Customers (
+                           id INT AUTO_INCREMENT PRIMARY KEY,
                            CustomerName VARCHAR(100),
                            ResponsiblePerson VARCHAR(100),
                            Project VARCHAR(100),

@@ -17,4 +17,9 @@ public class UserServiceImpl implements UserService {
         return userDao.getByUsername(username);
     }
 
+    @Override
+    public void updatePasswordByUsername(User user) {
+        userDao.updatePasswordByUsername(user);
+    }
+
 }

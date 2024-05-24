@@ -80,42 +80,7 @@
             line-height: 1.6;
         }
     </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('success')) {
-                alert('登录成功');
-            }
-        };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var spanElement = document.querySelector('.topbar span');
-            var logoutButton = document.querySelector('.logout-button');
-            var hideTimeout;
-
-            spanElement.addEventListener('mouseover', function() {
-                clearTimeout(hideTimeout);
-                logoutButton.style.display = 'block';
-            });
-
-            spanElement.addEventListener('mouseout', function() {
-                hideTimeout = setTimeout(function() {
-                    logoutButton.style.display = 'none';
-                }, 1000);
-            });
-
-            logoutButton.addEventListener('mouseover', function() {
-                clearTimeout(hideTimeout);
-                logoutButton.style.display = 'block';
-            });
-
-            logoutButton.addEventListener('mouseout', function() {
-                hideTimeout = setTimeout(function() {
-                    logoutButton.style.display = 'none';
-                }, 1000);
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="sidebar">
@@ -126,16 +91,21 @@
     <a href="/pass">修改密码</a>
     <a href="#">联系我们</a>
 </div>
-<div class="main-content">
-    <div class="topbar">
-        <span>你好，欢迎您</span>
-        <a href="/login" class="logout-button">退出</a>
+    <div class="main-content">
+        <div class="topbar">
+            <span>你好，欢迎您</span>
+            <a href="/login" class="logout-button">退出</a>
+        </div>
+        <div class="welcome-message">
+            <h1>修改密码</h1>
+            <form id="changePasswordForm" action="/changePassword" method="post">
+                <label for="username">用户名:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">新密码:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="提交">
+            </form>
+        </div>
     </div>
-    <div class="welcome-message">
-        <h1>欢迎来到人员管理系统</h1>
-        <p>这是一个专注于管理客户、员工的系统。</p>
-        <p>您可以通过侧边栏导航访问不同的功能模块。</p>
-    </div>
-</div>
 </body>
 </html>

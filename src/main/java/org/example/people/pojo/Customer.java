@@ -3,12 +3,19 @@ package org.example.people.pojo;
 import java.util.Date;
 
 public class Customer {
-
+    private int id;
     private String customerName;
     private String responsiblePerson;
     private String project;
-    private Date startDate;
+    private String startDate;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -34,11 +41,11 @@ public class Customer {
         this.project = project;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 }

@@ -3,6 +3,7 @@ package org.example.people.controller;
 
 import org.example.people.pojo.User;
 import org.example.people.service.UserService;
+import org.example.people.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,11 @@ public class UserController {
     public String showLoginForm() {
         // 在这里返回登录页面的视图名称
         return "login";
+    }
+
+    @GetMapping("/pass")
+    public String showPassForm() {
+        return "pass";
     }
 
 //    表单提交，比对数据库中的密码
@@ -58,6 +64,16 @@ public class UserController {
     public String showHomePage() {
         // 返回主页的视图名称
         return "home";
+    }
+    @PostMapping("/changePassword")
+    public String changePassword(@RequestParam String username, @RequestParam String password){
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        userService.updatePasswordByUsername(user);
+
+        return "login";
     }
 }
 

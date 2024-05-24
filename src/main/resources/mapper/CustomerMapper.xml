@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="org.example.people.dao.CustomerDao">
+    <resultMap id="CustomerMap" type="org.example.people.pojo.Customer">
+        <id property="id" column="id"/>
+        <result property="customerName" column="customerName"/>
+        <result property="responsiblePerson" column="responsiblePerson"/>
+        <result property="project" column="project"/>
+        <result property="startDate" column="startDate"/>
+    </resultMap>
+
+    <select id="getAllCustomers" resultMap="CustomerMap">
+        SELECT * FROM Customers
+    </select>
+
+    <select id="getCustomerById" parameterType="int" resultMap="CustomerMap">
+        SELECT * FROM Customers WHERE id = #{id}
+    </select>
+
+    <insert id="insertCustomer" parameterType="org.example.people.pojo.Customer">
+        INSERT INTO Customers (customerName, responsiblePerson, project, startDate)
+        VALUES (#{customerName}, #{responsiblePerson}, #{project}, #{startDate})
+    </insert>
+
+    <update id="updateCustomer" parameterType="org.example.people.pojo.Customer">
+        UPDATE Customers
+        SET customerName = #{customerName}, responsiblePerson = #{responsiblePerson}, project = #{project}, startDate = #{startDate}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteCustomer" parameterType="int">
+        DELETE FROM Customers WHERE id = #{id}
+    </delete>
 </mapper>

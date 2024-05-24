@@ -4,14 +4,9 @@ import org.example.people.pojo.Customer;
 import java.util.List;
 
 public interface CustomerService {
-
     List<Customer> getAllCustomers();
-
-    Customer getCustomerByCustomerName(String customerName);
-
+    Customer getCustomerById(int id);
     void insertCustomer(Customer customer);
-
     void updateCustomer(Customer customer);
-
-    void deleteCustomer(String customerName);
+    void deleteCustomer(int id);
 }

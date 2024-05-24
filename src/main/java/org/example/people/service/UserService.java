@@ -5,4 +5,4 @@ import org.example.people.pojo.User;
 public interface UserService {
     User getByUsername(String username);
 
-}
+    void updatePasswordByUsername(User user);}

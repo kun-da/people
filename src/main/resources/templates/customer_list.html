@@ -104,7 +104,7 @@
     <a href="/home">首页</a>
     <a href="/customers">客户管理</a>
     <a href="/personnel">员工管理</a>
-    <a href="#">系统管理</a>
+    <a href="/pass">修改密码</a>
     <a href="#">联系我们</a>
 </div>
 <div class="main-content">
@@ -115,6 +115,7 @@
         <h1>客户管理</h1>
         <a href="/customers/new" class="add-button">添加新客户</a>
         <table>
+            <thead>
             <tr>
                 <th>客户名称</th>
                 <th>负责人</th>
@@ -122,16 +123,19 @@
                 <th>开始日期</th>
                 <th>操作</th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="customer : ${customers}">
                 <td th:text="${customer.customerName}"></td>
                 <td th:text="${customer.responsiblePerson}"></td>
                 <td th:text="${customer.project}"></td>
                 <td th:text="${customer.startDate}"></td>
                 <td>
-                    <a th:href="@{/customers/{customerName}(customerName=${customer.customerName})}">编辑</a>
-                    <a th:href="@{/customers/delete/{customerName}(customerName=${customer.customerName})}">删除</a>
+                    <a th:href="@{/customers/{id}(id=${customer.id})}">编辑</a>
+                    <a th:href="@{/customers/delete/{id}(id=${customer.id})}">删除</a>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 </div>
