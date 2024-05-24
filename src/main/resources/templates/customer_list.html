@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>员工管理 - 人员管理系统</title>
+    <title>客户管理 - 人员管理系统</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -101,9 +101,9 @@
 <body>
 <div class="sidebar">
     <h2>人员管理系统</h2>
-    <a href="home.html">首页</a>
-    <a href="#">客户管理</a>
-    <a href="personnel_list.html">员工管理</a>
+    <a href="/home">首页</a>
+    <a href="/customers">客户管理</a>
+    <a href="/personnel">员工管理</a>
     <a href="#">系统管理</a>
     <a href="#">联系我们</a>
 </div>
@@ -112,30 +112,24 @@
         <span>你好，欢迎您</span>
     </div>
     <div class="content">
-        <h1>员工管理</h1>
-        <a href="/personnel/new" class="add-button">添加新员工</a>
+        <h1>客户管理</h1>
+        <a href="/customers/new" class="add-button">添加新客户</a>
         <table>
             <tr>
-                <th>ID</th>
-                <th>姓名</th>
-                <th>年龄</th>
-                <th>性别</th>
-                <th>职位</th>
-                <th>薪资</th>
-                <th>入职年份</th>
+                <th>客户名称</th>
+                <th>负责人</th>
+                <th>项目</th>
+                <th>开始日期</th>
                 <th>操作</th>
             </tr>
-            <tr th:each="personnel : ${personnel}">
-                <td th:text="${personnel.id}"></td>
-                <td th:text="${personnel.name}"></td>
-                <td th:text="${personnel.age}"></td>
-                <td th:text="${personnel.gender}"></td>
-                <td th:text="${personnel.position}"></td>
-                <td th:text="${personnel.salary}"></td>
-                <td th:text="${personnel.hireYear}"></td>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.responsiblePerson}"></td>
+                <td th:text="${customer.project}"></td>
+                <td th:text="${customer.startDate}"></td>
                 <td>
-                    <a th:href="@{/personnel/{id}(id=${personnel.id})}">编辑</a>
-                    <a th:href="@{/personnel/delete/{id}(id=${personnel.id})}">删除</a>
+                    <a th:href="@{/customers/{customerName}(customerName=${customer.customerName})}">编辑</a>
+                    <a th:href="@{/customers/delete/{customerName}(customerName=${customer.customerName})}">删除</a>
                 </td>
             </tr>
         </table>

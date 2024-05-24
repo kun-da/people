@@ -92,9 +92,9 @@
 <body>
 <div class="sidebar">
     <h2>人员管理系统</h2>
-    <a href="home.html">首页</a>
-    <a href="#">客户管理</a>
-    <a href="personnel_list.html">员工管理</a>
+    <a href="/home">首页</a>
+    <a href="/customers">客户管理</a>
+    <a href="/personnel">员工管理</a>
     <a href="#">系统管理</a>
     <a href="#">联系我们</a>
 </div>
@@ -122,9 +122,21 @@
             <input type="number" step="0.01" id="salary" th:field="*{salary}" required />
             <label for="hireYear">入职年份</label>
             <input type="number" id="hireYear" th:field="*{hireYear}" required />
-            <button type="submit">保存</button>
+            <button type="submit" id="btn">保存</button>
         </form>
     </div>
 </div>
+<script>
+    const btn=document.getElementById('btn');
+
+    btn.addEventListener('click',function (e){
+        const age=+document.getElementById('age').value;
+        console.log(age)
+        if(age<=10||age>=70){
+            e.preventDefault();
+            alert("错误");
+        }
+    })
+</script>
 </body>
 </html>
