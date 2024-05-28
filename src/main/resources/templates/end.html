@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>编辑客户 - 人员管理系统</title>
+    <title>联系我们 - 人员管理系统</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,45 +47,55 @@
             padding: 10px;
             text-align: right;
             margin-bottom: 20px;
+            position: relative;
         }
         .topbar span {
             margin-right: 20px;
+            cursor: pointer;
         }
-        .content {
+        .logout-button {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 40px;
+            background-color: #f4f4f4;
+            color: #2c2c2c;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .welcome-message {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .content h1 {
+        .welcome-message h1 {
             color: #2c2c2c;
             margin-bottom: 20px;
         }
-        .content form {
-            display: flex;
-            flex-direction: column;
+        .welcome-message p {
+            color: #555;
+            line-height: 1.6;
         }
-        .content form label {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .content form input, .content form select {
-            padding: 10px;
+        /* 新增样式 */
+        .contact-info {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
         }
-        .content form button {
-            padding: 10px 15px;
-            background-color: #2c2c2c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+
+        .contact-info h2 {
+            color: #2c2c2c;
+            margin-bottom: 20px;
         }
-        .content form button:hover {
-            background-color: #575757;
+
+        .contact-info p {
+            color: #555;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -101,22 +111,17 @@
 <div class="main-content">
     <div class="topbar">
         <span>你好，欢迎您</span>
+        <a href="/login" class="logout-button">退出</a>
     </div>
-    <div class="content">
-        <h1 th:if="${customer.id == null}">添加新客户</h1>
-        <h1 th:if="${customer.id != null}">编辑客户</h1>
-        <form th:action="@{/customers}" th:object="${customer}" method="post">
-            <input type="hidden" th:field="*{id}" />
-            <label for="customerName">客户名称</label>
-            <input type="text" id="customerName" th:field="*{customerName}" required />
-            <label for="responsiblePerson">负责人</label>
-            <input type="text" id="responsiblePerson" th:field="*{responsiblePerson}" required />
-            <label for="project">项目</label>
-            <input type="text" id="project" th:field="*{project}" required />
-            <label for="startDate">开始日期</label>
-            <input type="date" id="startDate" th:field="*{startDate}" required />
-            <button type="submit">保存</button>
-        </form>
+    <div class="contact-info">
+        <h2>联系我们</h2>
+        <p>如果您有任何问题或建议，欢迎随时联系我们。</p>
+        <p>您可以通过以下方式联系我们：</p>
+        <ul>
+            <li>Email: 2458442580@qq.com</li>
+            <li>电话: 6666666</li>
+            <li>地址: 金陵科技学院</li>
+        </ul>
     </div>
 </div>
 </body>

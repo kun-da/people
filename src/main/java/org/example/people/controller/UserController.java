@@ -29,6 +29,11 @@ public class UserController {
         return "pass";
     }
 
+    @GetMapping("/end")
+    public String showEndForm() {
+        return "end";
+    }
+
 //    表单提交，比对数据库中的密码
     @PostMapping("/login")
     public String loginSubmit(@RequestParam String username, @RequestParam String password) {

@@ -97,6 +97,11 @@
             background-color: #575757;
         }
     </style>
+    <script>
+        function confirmDelete() {
+            return confirm("确定要删除这个客户吗？"); // 弹出确认框
+        }
+    </script>
 </head>
 <body>
 <div class="sidebar">
@@ -105,7 +110,7 @@
     <a href="/customers">客户管理</a>
     <a href="/personnel">员工管理</a>
     <a href="/pass">修改密码</a>
-    <a href="#">联系我们</a>
+    <a href="/end">联系我们</a>
 </div>
 <div class="main-content">
     <div class="topbar">
@@ -132,8 +137,7 @@
                 <td th:text="${customer.startDate}"></td>
                 <td>
                     <a th:href="@{/customers/{id}(id=${customer.id})}">编辑</a>
-                    <a th:href="@{/customers/delete/{id}(id=${customer.id})}">删除</a>
-                </td>
+                    <a th:href="@{/customers/delete/{id}(id=${customer.id})}" onclick="return confirmDelete()">删除</a>                </td>
             </tr>
             </tbody>
         </table>
